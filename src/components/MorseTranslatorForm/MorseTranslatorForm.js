@@ -18,9 +18,11 @@ class MorseTranslatorForm extends Component {
                     <Form.Label>Message to translate</Form.Label>
                     <Form.Control type="text" placeholder="Enter a message" value={this.props.message} onChange={this.props.onMessageChange} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <div class="row justify-content-end">
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </div>
             </Form >
         )
     }

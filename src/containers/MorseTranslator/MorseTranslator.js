@@ -16,21 +16,28 @@ class MorseTranslator extends Component {
 
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.handleMessageSubmit = this.handleMessageSubmit.bind(this);
+        this.handleHistoryDelete = this.handleHistoryDelete.bind(this);
     }
 
     render() {
         return (
-            <div>
+            <div class="container">
                 <h1>Morse Code Online Translator</h1>
                 <MorseTranslatorForm message={this.state.message} errorMessage={this.state.errorMessage} onMessageChange={this.handleMessageChange} onSubmit={this.handleMessageSubmit} />
                 <br />
-                <MorseTranslatorHistoryTable history={this.state.history} />
+                <MorseTranslatorHistoryTable history={this.state.history} onHistoryDelete={this.handleHistoryDelete} />
             </div>
         );
     }
 
     handleMessageChange(event) {
         this.setState({ message: event.target.value });
+        event.preventDefault();
+    }
+
+    handleHistoryDelete(event) {
+        let newHistory = [];
+        this.setState({ history: newHistory });
         event.preventDefault();
     }
 
